@@ -70,8 +70,8 @@ class Environment(object):
         self.trained_model = None
         self.train_mode = True
         #self.expert_data = 'expert_trajectories/hopper_er.bin'
-        #self.expert_data = 'expert_trajectories/cheetah_er.bin'
-        self.expert_data = 'expert_trajectories/invertedpendulum_er.bin'
+        self.expert_data = 'expert_trajectories/cheetah_er.bin'
+        #self.expert_data = 'expert_trajectories/invertedpendulum_er.bin'
         self.n_train_iters = 1000000
         self.n_episodes_test = 1
         self.test_interval = 1000

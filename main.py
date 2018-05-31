@@ -55,7 +55,7 @@ if __name__ == '__main__':
     # load environment
     #env = Environment(os.path.curdir, 'Hopper-v1')
     env = Environment(os.path.curdir, 'HalfCheetah-v1')
-    env = Environment(os.path.curdir, 'InvertedPendulum-v1')
+    #env = Environment(os.path.curdir, 'InvertedPendulum-v1')
 
     # start training
     dispatcher(env=env)
