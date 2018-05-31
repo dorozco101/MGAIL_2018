@@ -4,8 +4,9 @@ import gym
 
 
 class Environment(object):
-    def __init__(self, run_dir, env_name):
+    def __init__(self, run_dir, env_name,ER_name):
         self.name = env_name
+        self.ER_name = ER_name
         self.gym = gym.make(self.name)
         self.random_initialization = True
         self._connect()
@@ -69,11 +70,9 @@ class Environment(object):
     def _train_params(self):
         self.trained_model = None
         self.train_mode = True
-        #self.expert_data = 'expert_trajectories/hopper_er.bin'
-        self.expert_data = 'expert_trajectories/good_HalfCheetah-v1_er.bin'
-        #self.expert_data = 'expert_trajectories/invertedpendulum_er.bin'
+        self.expert_data = 'expert_trajectories/'+self.ER_name+'.bin'
         self.n_train_iters = 1000000
-        self.n_episodes_test = 1
+        self.n_episodes_test = 20
         self.test_interval = 1000
         self.n_steps_test = 1000
         self.vis_flag = True

@@ -7,9 +7,12 @@ from mgail import MGAIL
 
 
 class Driver(object):
-    def __init__(self, environment):
+    def __init__(self, environment,my_ER_name):
 
+        tf.set_random_seed(0)
+        self.ER_name = my_ER_name
         self.env = environment
+        
         self.algorithm = MGAIL(environment=self.env)
         self.init_graph = tf.global_variables_initializer()
         self.saver = tf.train.Saver()
@@ -192,7 +195,7 @@ class Driver(object):
     def save_model(self, dir_name=None):
         import os
         if dir_name is None:
-            dir_name = self.run_dir + '/snapshots/'
+            dir_name = self.run_dir + '/snapshots_'+self.ER_name+'/'
         if not os.path.isdir(dir_name):
             os.mkdir(dir_name)
         fname = dir_name + time.strftime("%Y-%m-%d-%H-%M-") + ('%0.6d.sn' % self.itr)
