@@ -51,11 +51,11 @@ def dispatcher(env, ER_name):
             driver.reward_mean_Arr.append(driver.reward_mean)
             driver.reward_std_Arr.append(driver.reward_std)
             
-            save_fig(np.array(driver_itrs),np.array(driver.reward_mean_Arr),np.array(driver.reward_std_Arr) ,'rewards_plot_'+ER_name+'.png', my_ER_name,'iteration','avg_reward')
+            save_fig(np.array(driver_itrs),np.array(driver.reward_mean_Arr),np.array(driver.reward_std_Arr) ,'results/rewards_plot_'+ER_name+'.png', my_ER_name,'iteration','avg_reward')
             
-            np.savetxt('reward_itrs_'+ER_name+'.csv', np.array(driver_itrs), delimiter=",")
-            np.savetxt('reward_means_'+ER_name+'.csv', np.array(driver.reward_mean_Arr), delimiter=",")
-            np.savetxt('reward_stds_'+ER_name+'.csv', np.array(driver.reward_std_Arr), delimiter=",")
+            np.savetxt('results/reward_itrs_'+ER_name+'.csv', np.array(driver_itrs), delimiter=",")
+            np.savetxt('results/reward_means_'+ER_name+'.csv', np.array(driver.reward_mean_Arr), delimiter=",")
+            np.savetxt('results/reward_stds_'+ER_name+'.csv', np.array(driver.reward_std_Arr), delimiter=",")
             
             #np.save('reward_itrs_hop.npy',np.array(driver_itrs))
             #np.save('reward_means_hop.npy',np.array(driver.reward_mean_Arr))
@@ -73,8 +73,8 @@ def dispatcher(env, ER_name):
 
 if __name__ == '__main__':
     # load environment
-    my_env_name = 'InvertedPendulum-v1'
-    my_ER_name = 'old_invertedpendulum_er'
+    my_env_name = 'Hopper-v1'
+    my_ER_name = 'hopper_er'
     env = Environment(os.path.curdir, my_env_name, my_ER_name)
 
     # start training
