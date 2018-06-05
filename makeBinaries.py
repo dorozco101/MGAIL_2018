@@ -14,6 +14,8 @@ for sentiment in sentiments:
     for Type in array_type:
         paths[Type] = 'expert_numpys/'+env_name+'_'+sentiment+'_'+Type+'.npy'
         arrays[Type] = np.load(paths[Type])
+    
+    arrays['nextStates'] = arrays['nextStates']
     action_size = arrays['actions'].shape[1]
     state_size = arrays['nextStates'].shape[1]
     qpos_size = arrays['qpos'].shape[1]
