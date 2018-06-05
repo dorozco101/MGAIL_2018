@@ -74,7 +74,7 @@ def dispatcher(env, ER_name):
 if __name__ == '__main__':
     # load environment
     my_env_name = 'Hopper-v1'
-    my_ER_name = 'hopper_er'
+    my_ER_name = 'bad_Hopper-v1_er'
     env = Environment(os.path.curdir, my_env_name, my_ER_name)
 
     # start training
