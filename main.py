@@ -42,7 +42,6 @@ def dispatcher(env, ER_name):
                 R.append(driver.collect_experience(record=True, vis=env.vis_flag, noise_flag=False, n_steps=1000))
 
             # update stats
-
             driver.reward_mean = float(sum(R)) / len(R)
             driver.reward_std = np.std(R)
             
