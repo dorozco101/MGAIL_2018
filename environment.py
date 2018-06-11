@@ -4,9 +4,10 @@ import gym
 
 
 class Environment(object):
-    def __init__(self, run_dir, env_name,ER_name):
+    def __init__(self, run_dir, env_name,ER_name,er_size):
         self.name = env_name
         self.ER_name = ER_name
+        self.er_size = er_size
         self.gym = gym.make(self.name)
         self.random_initialization = True
         self._connect()
@@ -72,7 +73,7 @@ class Environment(object):
         self.train_mode = True
         self.expert_data = 'expert_trajectories/'+self.ER_name+'.bin'
         self.n_train_iters = 1000000
-        self.n_episodes_test = 20
+        self.n_episodes_test = 5
         self.test_interval = 1000
         self.n_steps_test = 1000
         self.vis_flag = True
@@ -81,7 +82,7 @@ class Environment(object):
         self.continuous_actions = True
 
         # Main parameters to play with:
-        self.er_agent_size = 50000
+        self.er_agent_size = self.er_size
         self.prep_time = 1000
         self.collect_experience_interval = 15
         self.n_steps_train = 10
