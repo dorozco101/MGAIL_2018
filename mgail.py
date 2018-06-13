@@ -125,10 +125,7 @@ class MGAIL(object):
                 a_sim = tf.argmax(action, dimension=1)
 
             # get next state
-            state_env, _, env_term_sig, = 
-            
-            
-            
+            state_env, _, env_term_sig, = self.env.step(a_sim, mode='tensorflow')[:3]
             state_e = common.normalize(state_env, self.er_expert.states_mean, self.er_expert.states_std)
             state_e = tf.stop_gradient(state_e)
 
