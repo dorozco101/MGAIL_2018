@@ -98,25 +98,26 @@ def dispatcher(env, ER_name,end_condition, test_interval, n_episodes_test,R_star
 
 if __name__ == '__main__':
     # load environment
-    my_env_name = 'InvertedPendulum-v1'
-    my_ER_name = 'good_'+my_env_name+'_er'
+    my_env_name = 'Hopper-v1'
+    my_ER_name = 'mixed_'+my_env_name+'_er'
     er_size = 50000
     env = Environment(os.path.curdir, my_env_name, my_ER_name,er_size)
     if my_env_name == 'InvertedPendulum-v1':
         test_interval = 100
         term_condition = 990
         n_episodes_test = 5
-        #min_iter_test = 10000
         R_start_testing = 700
 
     elif my_env_name == 'HalfCheetah-v1':
         term_condition = 2000
         test_interval = 400
         n_episodes_test = 5
+        R_start_testing = 1500
     else:
         term_condition = 2500
         test_interval = 400  
-        n_episodes_test = 5     
+        n_episodes_test = 5
+        R_start_testing = 2000     
 
     # start training
     dispatcher(env=env,ER_name = my_ER_name,end_condition = term_condition, test_interval = test_interval,n_episodes_test = n_episodes_test,R_start_testing = R_start_testing)
